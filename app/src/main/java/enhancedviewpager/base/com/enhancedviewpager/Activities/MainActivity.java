@@ -18,9 +18,19 @@ import enhancedviewpager.base.com.enhancedviewpager.Translation.LocalManger;
 public class MainActivity extends BaseActivity {
 
     private Switch aSwitch;
-    private Button btn_showViewPager;
+   private Button btn_showViewPager_default;
+    private Button btn_showViewPager_circle;
+    private Button btn_showViewPager_titles;
+   private Button btn_showViewPager_titles_icons;
 
 
+
+   public static final String VIEW_TYPE = "TYPE";
+   public static final int DEFAULT = 0;
+   public static final int CIRCLE = 100;
+   public static final int WITH_TITLES = 200;
+   public static final int WITH_TITLES_ICONS = 300;
+   public static final int WITH_ICONS = 400;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +51,12 @@ public class MainActivity extends BaseActivity {
     //Initialize views
     private void initViews(){
         aSwitch = findViewById(R.id.aSwitch);
-        btn_showViewPager = findViewById(R.id.btn_showViewPager);
+        btn_showViewPager_default = findViewById(R.id.btn_showViewPager_default);
+        btn_showViewPager_circle = findViewById(R.id.btn_showViewPager_circle);
+        btn_showViewPager_titles = findViewById(R.id.btn_showViewPager_titles);
+        btn_showViewPager_titles_icons = findViewById(R.id.btn_showViewPager_icons);
+
+
     }
 
     //OnViewsClicked
@@ -54,12 +69,16 @@ public class MainActivity extends BaseActivity {
             }
         });
 
-        btn_showViewPager.setOnClickListener(v -> startViewPagerActivity());
+        btn_showViewPager_default.setOnClickListener(v -> startViewPagerActivity(DEFAULT));
+        btn_showViewPager_circle.setOnClickListener(v -> startViewPagerActivity(CIRCLE));
+        btn_showViewPager_titles.setOnClickListener(v -> startViewPagerActivity(WITH_TITLES));
+        btn_showViewPager_titles_icons.setOnClickListener(v -> startViewPagerActivity(WITH_TITLES_ICONS));
 
     }
 
-    private void startViewPagerActivity(){
+    private void startViewPagerActivity(int viewPagerType){
         Intent intent = new Intent(this,ViewPagerActivity.class);
+        intent.putExtra(VIEW_TYPE,viewPagerType);
         startActivity(intent);
     }
 

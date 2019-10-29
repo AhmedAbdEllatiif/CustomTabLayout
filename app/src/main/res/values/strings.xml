@@ -3,11 +3,11 @@
     <string name="sample">هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="page_1">الصفحة 1</string>
     <string name="page_2">الصفحة 2</string>
     <string name="page_3">الصفحة 3</string>
     <string name="fisrt">الاولى</string>
     <string name="second">الثانية</string>
     <string name="third">الثالثة</string>
+    <string name="txt_show">عرض</string>
 </resources>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="content_txt">20sp</dimen>
+    <dimen name="page_txt">50sp</dimen>
+</resources>
