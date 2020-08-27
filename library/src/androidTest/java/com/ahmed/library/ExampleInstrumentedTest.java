@@ -1,4 +1,4 @@
-package com.ahmed.sampleApp;
+package com.ahmed.library;
 
 import android.content.Context;
 import androidx.test.platform.app.InstrumentationRegistry;
@@ -19,8 +19,7 @@ public class ExampleInstrumentedTest {
     @Test
     public void useAppContext() {
         // Context of the app under test.
-        Context appContext = InstrumentationRegistry.getTargetContext();
-
-        assertEquals("enhancedviewpager.com.enhancedviewpager", appContext.getPackageName());
+        Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
+        assertEquals("com.ahmed.library.test", appContext.getPackageName());
     }
 }

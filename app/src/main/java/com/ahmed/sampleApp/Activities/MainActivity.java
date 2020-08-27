@@ -43,6 +43,8 @@ public class MainActivity extends BaseActivity {
         dealWithSwitchBtn();
 
 
+
+
     }
 
     //Initialize views

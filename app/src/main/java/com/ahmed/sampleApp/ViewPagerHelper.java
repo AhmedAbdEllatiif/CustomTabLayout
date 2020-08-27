@@ -3,8 +3,8 @@ package com.ahmed.sampleApp;
 import android.content.Context;
 import android.graphics.PorterDuff;
 
-import android.support.design.widget.TabLayout;
-import android.support.v4.view.ViewPager;
+import com.google.android.material.tabs.TabLayout;
+import androidx.viewpager.widget.ViewPager;
 
 import java.util.ArrayList;
 import java.util.Collections;
