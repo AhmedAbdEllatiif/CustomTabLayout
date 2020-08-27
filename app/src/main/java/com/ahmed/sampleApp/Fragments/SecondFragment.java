@@ -1,4 +1,4 @@
-package enhancedviewpager.base.com.enhancedviewpager.Fragments;
+package com.ahmed.sampleApp.Fragments;
 
 
 import android.os.Bundle;
@@ -7,7 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import enhancedviewpager.base.com.enhancedviewpager.R;
+import com.ahmed.sampleApp.R;
+
 
 /**
  * A simple {@link Fragment} subclass.

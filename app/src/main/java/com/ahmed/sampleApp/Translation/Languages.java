@@ -1,4 +1,4 @@
-package enhancedviewpager.base.com.enhancedviewpager.Translation;
+package com.ahmed.sampleApp.Translation;
 
 public class Languages {
     public static final String ENGLISH = "English";

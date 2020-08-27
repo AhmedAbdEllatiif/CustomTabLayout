@@ -1,4 +1,4 @@
-package enhancedviewpager.base.com.enhancedviewpager;
+package com.ahmed.sampleApp;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("enhancedviewpager.base.com.enhancedviewpager", appContext.getPackageName());
+        assertEquals("enhancedviewpager.com.enhancedviewpager", appContext.getPackageName());
     }
 }

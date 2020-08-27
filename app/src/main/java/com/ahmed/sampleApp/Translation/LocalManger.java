@@ -1,4 +1,4 @@
-package enhancedviewpager.base.com.enhancedviewpager.Translation;
+package com.ahmed.sampleApp.Translation;
 
 import android.annotation.SuppressLint;
 import android.content.Context;

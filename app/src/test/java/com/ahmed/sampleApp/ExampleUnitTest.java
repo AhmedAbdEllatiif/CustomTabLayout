@@ -1,4 +1,4 @@
-package enhancedviewpager.base.com.enhancedviewpager;
+package com.ahmed.sampleApp;
 
 import org.junit.Test;
 

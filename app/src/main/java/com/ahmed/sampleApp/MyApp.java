@@ -1,11 +1,11 @@
-package enhancedviewpager.base.com.enhancedviewpager;
+package com.ahmed.sampleApp;
 
 import android.app.Application;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.util.Log;
 
-import enhancedviewpager.base.com.enhancedviewpager.Translation.LocalManger;
+import com.ahmed.sampleApp.Translation.LocalManger;
 
 public class MyApp extends Application {
     public static LocalManger localeManager;

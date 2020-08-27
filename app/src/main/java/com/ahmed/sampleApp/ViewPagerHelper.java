@@ -1,4 +1,4 @@
-package enhancedviewpager.base.com.enhancedviewpager;
+package com.ahmed.sampleApp;
 
 import android.content.Context;
 import android.graphics.PorterDuff;
@@ -9,6 +9,7 @@ import android.support.v4.view.ViewPager;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Objects;
+
 
 public class ViewPagerHelper {
 

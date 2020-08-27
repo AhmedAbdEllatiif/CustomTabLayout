@@ -1,4 +1,4 @@
-package enhancedviewpager.base.com.enhancedviewpager.Activities;
+package com.ahmed.sampleApp.Activities;
 
 import android.content.Intent;
 import android.os.Handler;
@@ -6,31 +6,28 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.Switch;
 
-import enhancedviewpager.base.com.enhancedviewpager.BaseActivity;
-import enhancedviewpager.base.com.enhancedviewpager.MyApp;
-import enhancedviewpager.base.com.enhancedviewpager.R;
-import enhancedviewpager.base.com.enhancedviewpager.Translation.Languages;
-import enhancedviewpager.base.com.enhancedviewpager.Translation.LocalManger;
-
-
+import com.ahmed.sampleApp.BaseActivity;
+import com.ahmed.sampleApp.MyApp;
+import com.ahmed.sampleApp.R;
+import com.ahmed.sampleApp.Translation.Languages;
+import com.ahmed.sampleApp.Translation.LocalManger;
 
 
 public class MainActivity extends BaseActivity {
 
     private Switch aSwitch;
-   private Button btn_showViewPager_default;
+    private Button btn_showViewPager_default;
     private Button btn_showViewPager_circle;
     private Button btn_showViewPager_titles;
-   private Button btn_showViewPager_titles_icons;
+    private Button btn_showViewPager_titles_icons;
 
 
-
-   public static final String VIEW_TYPE = "TYPE";
-   public static final int DEFAULT = 0;
-   public static final int CIRCLE = 100;
-   public static final int WITH_TITLES = 200;
-   public static final int WITH_TITLES_ICONS = 300;
-   public static final int WITH_ICONS = 400;
+    public static final String VIEW_TYPE = "TYPE";
+    public static final int DEFAULT = 0;
+    public static final int CIRCLE = 100;
+    public static final int WITH_TITLES = 200;
+    public static final int WITH_TITLES_ICONS = 300;
+    public static final int WITH_ICONS = 400;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,9 +35,9 @@ public class MainActivity extends BaseActivity {
         setContentView(R.layout.activity_main);
 
         //Initialize views
-         initViews();
+        initViews();
 
-         //onViewsClicked
+        //onViewsClicked
         onViewsClicked();
 
         dealWithSwitchBtn();
@@ -49,7 +46,7 @@ public class MainActivity extends BaseActivity {
     }
 
     //Initialize views
-    private void initViews(){
+    private void initViews() {
         aSwitch = findViewById(R.id.aSwitch);
         btn_showViewPager_default = findViewById(R.id.btn_showViewPager_default);
         btn_showViewPager_circle = findViewById(R.id.btn_showViewPager_circle);
@@ -60,12 +57,12 @@ public class MainActivity extends BaseActivity {
     }
 
     //OnViewsClicked
-    private  void onViewsClicked(){
+    private void onViewsClicked() {
         aSwitch.setOnClickListener(v -> {
-            if(!aSwitch.isActivated()){
-                new Handler().postDelayed(() -> setNewLocale(LocalManger.LANGUAGE_ARABIC),1500);
-            }else {
-                new Handler().postDelayed(() -> setNewLocale(LocalManger.LANGUAGE_ENGLISH),1500);
+            if (!aSwitch.isActivated()) {
+                new Handler().postDelayed(() -> setNewLocale(LocalManger.LANGUAGE_ARABIC), 1500);
+            } else {
+                new Handler().postDelayed(() -> setNewLocale(LocalManger.LANGUAGE_ENGLISH), 1500);
             }
         });
 
@@ -76,9 +73,9 @@ public class MainActivity extends BaseActivity {
 
     }
 
-    private void startViewPagerActivity(int viewPagerType){
-        Intent intent = new Intent(this,ViewPagerActivity.class);
-        intent.putExtra(VIEW_TYPE,viewPagerType);
+    private void startViewPagerActivity(int viewPagerType) {
+        Intent intent = new Intent(this, ViewPagerActivity.class);
+        intent.putExtra(VIEW_TYPE, viewPagerType);
         startActivity(intent);
     }
 
@@ -90,18 +87,18 @@ public class MainActivity extends BaseActivity {
         startActivity(i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK));
 
 
-            System.exit(0);
+        System.exit(0);
 
 
     }
 
 
     //Change the ٍ switch btn status due to current Language
-    private void dealWithSwitchBtn(){
-        if (LocalManger.getLocale(getResources()).getDisplayLanguage().equals(Languages.ENGLISH)){
+    private void dealWithSwitchBtn() {
+        if (LocalManger.getLocale(getResources()).getDisplayLanguage().equals(Languages.ENGLISH)) {
             aSwitch.setChecked(false);
             aSwitch.setActivated(false);
-        }else {
+        } else {
             aSwitch.setChecked(true);
             aSwitch.setActivated(true);
         }

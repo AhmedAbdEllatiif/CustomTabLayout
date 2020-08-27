@@ -1,4 +1,4 @@
-package enhancedviewpager.base.com.enhancedviewpager;
+package com.ahmed.sampleApp;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

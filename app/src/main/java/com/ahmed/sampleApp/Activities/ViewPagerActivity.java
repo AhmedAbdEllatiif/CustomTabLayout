@@ -1,4 +1,4 @@
-package enhancedviewpager.base.com.enhancedviewpager.Activities;
+package com.ahmed.sampleApp.Activities;
 
 import android.app.Activity;
 import android.graphics.PorterDuff;
@@ -11,15 +11,15 @@ import android.view.View;
 import java.util.ArrayList;
 import java.util.Objects;
 
-import enhancedviewpager.base.com.enhancedviewpager.BaseActivity;
-import enhancedviewpager.base.com.enhancedviewpager.ViewPagerHelper;
-import enhancedviewpager.base.com.enhancedviewpager.Fragments.FirstFragment;
-import enhancedviewpager.base.com.enhancedviewpager.Fragments.SecondFragment;
-import enhancedviewpager.base.com.enhancedviewpager.Fragments.ThirdFragment;
-import enhancedviewpager.base.com.enhancedviewpager.R;
-import enhancedviewpager.base.com.enhancedviewpager.Translation.Languages;
-import enhancedviewpager.base.com.enhancedviewpager.Translation.LocalManger;
-import enhancedviewpager.base.com.enhancedviewpager.ViewPagerAdapter;
+import com.ahmed.sampleApp.BaseActivity;
+import com.ahmed.sampleApp.R;
+import com.ahmed.sampleApp.ViewPagerHelper;
+import com.ahmed.sampleApp.Fragments.FirstFragment;
+import com.ahmed.sampleApp.Fragments.SecondFragment;
+import com.ahmed.sampleApp.Fragments.ThirdFragment;
+import com.ahmed.sampleApp.Translation.Languages;
+import com.ahmed.sampleApp.Translation.LocalManger;
+import com.ahmed.sampleApp.ViewPagerAdapter;
 
 public class ViewPagerActivity extends BaseActivity {
 
@@ -84,7 +84,8 @@ public class ViewPagerActivity extends BaseActivity {
     //To set viewPager with arabic language
     private void setUpViewPager_RTL(){
         int viewType = getIntent().getIntExtra(MainActivity.VIEW_TYPE,-1);
-        ViewPagerHelper customViewPager  = new ViewPagerHelper(this,viewPager,tabLayout,viewPagerAdapter.getCount(),viewPagerAdapter);
+        ViewPagerHelper customViewPager  =
+                new ViewPagerHelper(this,viewPager,tabLayout,viewPagerAdapter.getCount(),viewPagerAdapter);
 
         switch (viewType){
             case MainActivity.DEFAULT :
@@ -104,6 +105,7 @@ public class ViewPagerActivity extends BaseActivity {
                 break;
 
             case  MainActivity.WITH_TITLES_ICONS:
+                tabLayout.setVisibility(View.VISIBLE);
                 customViewPager.addTabs(viewPagerAdapter.getTitles(),getIcons());
                 customViewPager.setViewPager(true);
                 break;

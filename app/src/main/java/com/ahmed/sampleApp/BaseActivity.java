@@ -1,4 +1,4 @@
-package enhancedviewpager.base.com.enhancedviewpager;
+package com.ahmed.sampleApp;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -7,7 +7,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
-import enhancedviewpager.base.com.enhancedviewpager.Translation.Utility;
+import com.ahmed.sampleApp.Translation.Utility;
 
 public class BaseActivity extends AppCompatActivity {
 

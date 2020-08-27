@@ -1,4 +1,4 @@
-package enhancedviewpager.base.com.enhancedviewpager.Translation;
+package com.ahmed.sampleApp.Translation;
 
 import android.app.Activity;
 import android.content.pm.ActivityInfo;
