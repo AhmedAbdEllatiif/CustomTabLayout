@@ -1,217 +1,145 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.ahmed.sampleApp.Activities.MainActivity"
     android:padding="30dp"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+
+    tools:context="com.ahmed.sampleApp.Activities.MainActivity"
     >
-    <ScrollView
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:paddingBottom="15dp"
+        android:layout_marginTop="30dp"
         android:overScrollMode="never"
         android:scrollbars="none"
+        android:orientation="vertical"
         >
 
+        <TextView
+            android:id="@+id/txt_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/content_txt"
+            android:gravity="start"
+            android:padding="3dp"
+            android:text="@string/sample"
+            android:textColor="#000"
+            android:layout_marginTop="15dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
 
+
+        <!--Switch Container-->
+        <!--////////////////////////////////////////////////////////////////-->
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:id="@+id/switch_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_gravity="center_horizontal"
+            >
 
-
-
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/guideLine_05_ver"
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/settings_txt_english_lang"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_percent=".05"/>
+                android:text="English"
+                android:textSize="@dimen/content_txt"
+                android:textColor="@color/txt_gray"
+                android:padding="3dp"
+                android:gravity="center"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                />
 
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/guideLine_95_ver"
-                android:layout_width="match_parent"
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/aSwitch"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_percent=".95"/>
-
-
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/guideLine_15_ver"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_percent=".15"/>
-
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/guideLine_85_ver"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_percent=".85"/>
-
-
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/guideLine_25_ver"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_percent=".25"/>
-
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/guideLine_75_ver"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_percent=".75"/>
-
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/guideLine_30_ver"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_percent=".30"/>
-
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/guideLine_70_ver"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_percent=".70"/>
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                app:layout_constraintStart_toEndOf="@+id/settings_txt_english_lang"
+                app:layout_constraintTop_toTopOf="@+id/settings_txt_english_lang"
+                app:layout_constraintBottom_toBottomOf="@+id/settings_txt_english_lang"
+                />
 
 
             <TextView
-                android:id="@+id/txt_content"
+                android:id="@+id/settings_txt_arabic_lang"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="العربية"
                 android:textSize="@dimen/content_txt"
-                android:gravity="start"
+                android:textColor="@color/colorPrimary"
                 android:padding="3dp"
-                android:text="@string/sample"
-                android:textColor="#000"
-                android:layout_marginTop="15dp"
+                android:gravity="center"
+                app:layout_constraintStart_toEndOf="@id/aSwitch"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
                 />
-
-
-
-            <!--Switch Container-->
-            <!--////////////////////////////////////////////////////////////////-->
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/switch_container"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txt_content"
-                >
-
-                <TextView
-                    android:id="@+id/settings_txt_english_lang"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="English"
-                    android:textSize="@dimen/content_txt"
-                    android:textColor="@color/txt_gray"
-                    android:padding="3dp"
-                    android:gravity="center"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    />
-
-                <Switch
-                    android:id="@+id/aSwitch"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginEnd="10dp"
-                    app:layout_constraintStart_toEndOf="@+id/settings_txt_english_lang"
-                    app:layout_constraintTop_toTopOf="@+id/settings_txt_english_lang"
-                    app:layout_constraintBottom_toBottomOf="@+id/settings_txt_english_lang"
-                    />
-
-
-                <TextView
-                    android:id="@+id/settings_txt_arabic_lang"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="العربية"
-                    android:textSize="@dimen/content_txt"
-                    android:textColor="@color/colorPrimary"
-                    android:padding="3dp"
-                    android:gravity="center"
-                    app:layout_constraintStart_toEndOf="@id/aSwitch"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-            <!--////////////////////////////////////////////////////////////////-->
-            <!--End of Switch container-->
-
-            <Button
-                android:id="@+id/btn_showViewPager_default"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="Default"
-                android:textColor="@color/white"
-                android:textSize="@dimen/content_txt"
-                android:background="@drawable/btn_shape"
-                android:layout_marginTop="30dp"
-                app:layout_constraintStart_toEndOf="@id/guideLine_30_ver"
-                app:layout_constraintEnd_toStartOf="@+id/guideLine_70_ver"
-                app:layout_constraintTop_toBottomOf="@+id/switch_container"
-                />
-
-
-            <Button
-                android:id="@+id/btn_showViewPager_circle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="Circle"
-                android:textColor="@color/white"
-                android:textSize="@dimen/content_txt"
-                android:background="@drawable/btn_shape"
-                android:layout_marginTop="30dp"
-                app:layout_constraintStart_toEndOf="@id/guideLine_25_ver"
-                app:layout_constraintEnd_toStartOf="@+id/guideLine_75_ver"
-                app:layout_constraintTop_toBottomOf="@+id/btn_showViewPager_default"
-                />
-
-            <Button
-                android:id="@+id/btn_showViewPager_titles"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="Titles"
-                android:textColor="@color/white"
-                android:textSize="@dimen/content_txt"
-                android:background="@drawable/btn_shape"
-                android:layout_marginTop="30dp"
-                app:layout_constraintStart_toEndOf="@id/guideLine_15_ver"
-                app:layout_constraintEnd_toStartOf="@+id/guideLine_85_ver"
-                app:layout_constraintTop_toBottomOf="@+id/btn_showViewPager_circle"
-                />
-
-            <Button
-                android:id="@+id/btn_showViewPager_icons"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="Icons and titles"
-                android:textColor="@color/white"
-                android:textSize="@dimen/content_txt"
-                android:background="@drawable/btn_shape"
-                android:layout_marginTop="30dp"
-                app:layout_constraintStart_toEndOf="@id/guideLine_05_ver"
-                app:layout_constraintEnd_toStartOf="@+id/guideLine_95_ver"
-                app:layout_constraintTop_toBottomOf="@+id/btn_showViewPager_titles"
-                />
-
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <!--////////////////////////////////////////////////////////////////-->
+        <!--End of Switch container-->
+
+
+        <Button
+            android:id="@+id/btn_showViewPager_default"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Default"
+            android:textColor="@color/white"
+            android:textSize="@dimen/content_txt"
+            android:background="@drawable/btn_shape"
+            android:layout_marginTop="30dp"
+
+            />
+
+
+        <Button
+            android:id="@+id/btn_showViewPager_titles"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Titles Only"
+            android:textColor="@color/white"
+            android:textSize="@dimen/content_txt"
+            android:background="@drawable/btn_shape"
+            android:layout_marginTop="30dp"
+            />
+
+
+        <Button
+            android:id="@+id/btn_showViewPager_icons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Icons Only"
+            android:textColor="@color/white"
+            android:textSize="@dimen/content_txt"
+            android:background="@drawable/btn_shape"
+            android:layout_marginTop="30dp"
+            />
+
+
+        <Button
+            android:id="@+id/btn_showViewPager_titlesAndIcons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Icons and titles"
+            android:textColor="@color/white"
+            android:textSize="@dimen/content_txt"
+            android:background="@drawable/btn_shape"
+            android:layout_marginTop="30dp"
+
+            />
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</ScrollView>

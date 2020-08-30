@@ -2,4 +2,5 @@
 <resources>
     <dimen name="content_txt">15sp</dimen>
     <dimen name="page_txt">35sp</dimen>
+    <dimen name="page_sub_txt">22sp</dimen>
 </resources>

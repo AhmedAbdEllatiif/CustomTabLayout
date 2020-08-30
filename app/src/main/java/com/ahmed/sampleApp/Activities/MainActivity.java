@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Handler;
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.Switch;
+
 
 import com.ahmed.sampleApp.BaseActivity;
 import com.ahmed.sampleApp.MyApp;
@@ -12,13 +12,15 @@ import com.ahmed.sampleApp.R;
 import com.ahmed.sampleApp.Translation.Languages;
 import com.ahmed.sampleApp.Translation.LocalManger;
 
+import androidx.appcompat.widget.SwitchCompat;
+
 
 public class MainActivity extends BaseActivity {
 
-    private Switch aSwitch;
+    private SwitchCompat aSwitch;
     private Button btn_showViewPager_default;
-    private Button btn_showViewPager_circle;
     private Button btn_showViewPager_titles;
+    private Button btn_showViewPager_icons;
     private Button btn_showViewPager_titles_icons;
 
 
@@ -51,9 +53,9 @@ public class MainActivity extends BaseActivity {
     private void initViews() {
         aSwitch = findViewById(R.id.aSwitch);
         btn_showViewPager_default = findViewById(R.id.btn_showViewPager_default);
-        btn_showViewPager_circle = findViewById(R.id.btn_showViewPager_circle);
         btn_showViewPager_titles = findViewById(R.id.btn_showViewPager_titles);
-        btn_showViewPager_titles_icons = findViewById(R.id.btn_showViewPager_icons);
+        btn_showViewPager_icons = findViewById(R.id.btn_showViewPager_icons);
+        btn_showViewPager_titles_icons = findViewById(R.id.btn_showViewPager_titlesAndIcons);
 
 
     }
@@ -69,8 +71,8 @@ public class MainActivity extends BaseActivity {
         });
 
         btn_showViewPager_default.setOnClickListener(v -> startViewPagerActivity(DEFAULT));
-        btn_showViewPager_circle.setOnClickListener(v -> startViewPagerActivity(CIRCLE));
         btn_showViewPager_titles.setOnClickListener(v -> startViewPagerActivity(WITH_TITLES));
+        btn_showViewPager_icons.setOnClickListener(v -> startViewPagerActivity(WITH_ICONS));
         btn_showViewPager_titles_icons.setOnClickListener(v -> startViewPagerActivity(WITH_TITLES_ICONS));
 
     }

@@ -29,6 +29,7 @@
                         <option name="values">
                           <map>
                             <entry key="autoMirrored" value="true" />
+                            <entry key="color" value="460a8e" />
                             <entry key="outputName" value="ic_arrow" />
                             <entry key="sourceFile" value="C:\Users\Ahmedd" />
                           </map>
