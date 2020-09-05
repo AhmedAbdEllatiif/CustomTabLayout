@@ -69,6 +69,7 @@ public class ViewPagerActivity extends BaseActivity {
                         .iconsResources(getIcons())
                         .selectedColor(R.color.colorAccent)
                         .unSelectedColor(R.color.colorPrimaryDark)
+                        .smoothScroll(false)
                         .build();
 
                 break;
@@ -83,6 +84,7 @@ public class ViewPagerActivity extends BaseActivity {
                         .iconsResources(getIcons())
                         .selectedColor(R.color.colorAccent)
                         .unSelectedColor(R.color.colorPrimaryDark)
+                        .smoothScroll(true)
                         .build();
                 break;
 

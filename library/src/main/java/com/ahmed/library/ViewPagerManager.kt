@@ -39,6 +39,7 @@ class ViewPagerManager {
         private var titles: ArrayList<String?>? = null
         private var iconsResources: ArrayList<Int?>? = null
         private var isRTL: Boolean = false
+        private var smoothScroll: Boolean = false
         private var tabsCount: Int = -1
         private var selectedColor: Int = -1
         private var unSelectedColor: Int = -1
@@ -74,6 +75,10 @@ class ViewPagerManager {
             return this
         }*/
 
+        fun smoothScroll(smoothScroll: Boolean): Builder {
+            this.smoothScroll = smoothScroll
+            return this
+        }
 
         fun selectedColor(selectedColor: Int): Builder {
             this.selectedColor = selectedColor
@@ -305,7 +310,7 @@ class ViewPagerManager {
             }else{
                 tab.position
             }
-            viewPager.currentItem = currentItemPositionViewPager
+            viewPager.setCurrentItem(currentItemPositionViewPager, smoothScroll)
         }
 
 
