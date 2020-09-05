@@ -269,11 +269,12 @@ class ViewPagerManager {
             tabLayout!!.addOnTabSelectedListener(object : OnTabSelectedListener {
                 override fun onTabSelected(tab: TabLayout.Tab) {
                     changePageOnTabClicked(tab)
+                       // tab.icon!!.setColorFilter(resources.getColor(selectedColor, null), PorterDuff.Mode.SRC_IN)
                     if (tab.icon != null && isColorsSelected()) {
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                                tab.icon!!.colorFilter = BlendModeColorFilter(resources.getColor(selectedColor,null), BlendMode.DST_IN)
+                            tab.icon!!.colorFilter = BlendModeColorFilter(resources.getColor(selectedColor,null), BlendMode.SRC_IN)
                         } else {
-                            tab.icon!!.setColorFilter(resources.getColor(selectedColor,null), PorterDuff.Mode.SRC_IN)
+                            tab.icon!!.setColorFilter(resources.getColor(selectedColor, null), PorterDuff.Mode.SRC_IN)
                         }
                     }
 
@@ -282,9 +283,9 @@ class ViewPagerManager {
                 override fun onTabUnselected(tab: TabLayout.Tab) {
                     if (tab.icon != null && isColorsSelected()) {
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                            tab.icon!!.colorFilter = BlendModeColorFilter(resources.getColor(unSelectedColor,null), BlendMode.DST_IN)
+                            tab.icon!!.colorFilter = BlendModeColorFilter(resources.getColor(unSelectedColor, null), BlendMode.SRC_IN)
                         } else {
-                            tab.icon!!.setColorFilter(resources.getColor(unSelectedColor,null), PorterDuff.Mode.SRC_IN)
+                            tab.icon!!.setColorFilter(resources.getColor(unSelectedColor, null), PorterDuff.Mode.SRC_IN)
                         }
                     }
 
@@ -322,7 +323,9 @@ class ViewPagerManager {
                 if (tabLayout!!.getTabAt(i)?.isSelected!!) {
                     val tab = tabLayout!!.getTabAt(i)
                     if (tab?.icon != null && isColorsSelected()) {
-                        if (tab.icon != null) {
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                            tab.icon!!.colorFilter = BlendModeColorFilter(resources.getColor(selectedColor,null), BlendMode.SRC_IN)
+                        } else {
                             tab.icon!!.setColorFilter(resources.getColor(selectedColor,null), PorterDuff.Mode.SRC_IN)
                         }
                     }
@@ -331,7 +334,9 @@ class ViewPagerManager {
                 } else {
                     val tab = tabLayout!!.getTabAt(i)
                     if (tab?.icon != null && isColorsSelected()) {
-                        if (tab.icon != null) {
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                            tab.icon!!.colorFilter = BlendModeColorFilter(resources.getColor(unSelectedColor,null), BlendMode.SRC_IN)
+                        } else {
                             tab.icon!!.setColorFilter(resources.getColor(unSelectedColor,null), PorterDuff.Mode.SRC_IN)
                         }
                     }
