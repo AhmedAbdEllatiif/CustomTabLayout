@@ -1,15 +1,14 @@
 package com.ahmed.sampleApp.Activities;
 
-import android.app.Activity;
 
-import com.ahmed.library.ViewPagerManager;
-import com.google.android.material.tabs.TabLayout;
+import com.ahmed.library.CustomTabLayout;
+import com.ahmed.library.SlidePagerAdapter;
 
 import androidx.fragment.app.Fragment;
-import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Bundle;
-import android.util.Log;
+import android.view.View;
 
 import java.util.ArrayList;
 
@@ -18,15 +17,19 @@ import com.ahmed.sampleApp.R;
 import com.ahmed.sampleApp.Fragments.FirstFragment;
 import com.ahmed.sampleApp.Fragments.SecondFragment;
 import com.ahmed.sampleApp.Fragments.ThirdFragment;
-import com.ahmed.sampleApp.Translation.Languages;
-import com.ahmed.sampleApp.Translation.LocalManger;
 
 public class ViewPagerActivity extends BaseActivity {
 
-    private static final String TAG = "ViewPagerActivity";
-
-    private ViewPager viewPager;
-    private TabLayout tabLayout;
+    //views
+    private ViewPager2 viewPager;
+    private CustomTabLayout tabLayout;
+    private CustomTabLayout circle_tabLayout;
+    //constant values
+    public static final String VIEW_TYPE = "VIEW_TYPE";
+    public static final int CIRCLE = 0;
+    public static final int WITH_TITLES = 1;
+    public static final int WITH_TITLES_ICONS = 2;
+    public static final int WITH_ICONS = 3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,60 +39,35 @@ public class ViewPagerActivity extends BaseActivity {
         //To Initialize views
         initViews();
 
-        //Initialize ViewPagerManager.Builder
-        ViewPagerManager.Builder builder = new ViewPagerManager.Builder(this);
+        int viewType = getIntent().getIntExtra(VIEW_TYPE, -1);
+        SlidePagerAdapter slidePagerAdapter = new SlidePagerAdapter(this);
+        slidePagerAdapter.addAllFragments(getFragments());
+        viewPager.setAdapter(slidePagerAdapter);
 
-
-        int viewType = getIntent().getIntExtra(MainActivity.VIEW_TYPE, -1);
 
         switch (viewType) {
-
-            case MainActivity.DEFAULT:
-                builder.viewPager(viewPager)
-                        .isRTL(isRTL())
-                        .fragments(getFragments())
-                        .build();
-                break;
-            case MainActivity.WITH_TITLES:
-                builder.viewPager(viewPager)
-                        .withTabLayout(true)
-                        .tabLayout(tabLayout)
-                        .isRTL(isRTL())
-                        .fragments(getFragments())
-                        .titles(getTitlesList())
-                        .build();
+            case WITH_TITLES:
+                tabLayout.titles(getTitlesList());
+                tabLayout.setupWithViewPager(viewPager);
                 break;
 
-            case MainActivity.WITH_ICONS:
-                builder.viewPager(viewPager)
-                        .withTabLayout(true)
-                        .tabLayout(tabLayout)
-                        .isRTL(isRTL())
-                        .fragments(getFragments())
-                        .iconsResources(getIcons())
-                        .selectedColor(R.color.colorAccent)
-                        .unSelectedColor(R.color.colorPrimaryDark)
-                        .smoothScroll(false)
-                        .build();
-
+            case WITH_ICONS:
+                tabLayout.iconsResources(getIcons());
+                tabLayout.setupWithViewPager(viewPager);
                 break;
 
-            case MainActivity.WITH_TITLES_ICONS:
-                builder.viewPager(viewPager)
-                        .withTabLayout(true)
-                        .tabLayout(tabLayout)
-                        .isRTL(isRTL())
-                        .fragments(getFragments())
-                        .titles(getTitlesList())
-                        .iconsResources(getIcons())
-                        .selectedColor(R.color.colorAccent)
-                        .unSelectedColor(R.color.colorPrimaryDark)
-                        .smoothScroll(true)
-                        .build();
+            case WITH_TITLES_ICONS:
+                tabLayout.titlesAndIconsResources(getTitlesList(), getIcons());
+                tabLayout.setupWithViewPager(viewPager);
                 break;
 
+            case CIRCLE:
+                int tabsCount = getFragments().size();
+                circle_tabLayout.tabsCount(tabsCount);
+                circle_tabLayout.setVisibility(View.VISIBLE);
+                circle_tabLayout.setupWithViewPager(viewPager);
+                break;
         }
-
 
     }
 
@@ -100,14 +78,7 @@ public class ViewPagerActivity extends BaseActivity {
     private void initViews() {
         viewPager = findViewById(R.id.viewpager);
         tabLayout = findViewById(R.id.tabLayout);
-    }
-
-
-    /**
-     * @return true if language is arabic
-     */
-    private boolean isRTL() {
-        return getLanguage(this).equals(Languages.ARABIC);
+        circle_tabLayout = findViewById(R.id.circle_tabLayout);
     }
 
 
@@ -144,34 +115,6 @@ public class ViewPagerActivity extends BaseActivity {
         icons.add(R.drawable.ic_library_music);
         return icons;
     }
-
-
-    /**
-     * @return string of  currentLanguage
-     */
-    public String getLanguage(Activity activity) {
-        Log.d(TAG, "currentLanguage: " + LocalManger.getLocale(activity.getResources()).getDisplayLanguage());
-        return LocalManger.getLocale(activity.getResources()).getDisplayLanguage();
-    }
-
-
-
-
-    /*private ArrayList<TabLayout.Tab> tabs() {
-        ArrayList<TabLayout.Tab> tabArrayList = new ArrayList<>();
-        for (String title : titles()) {
-            tabArrayList.add(addNewTab(title));
-        }
-        return tabArrayList;
-    }
-
-     *//*
-    private TabLayout.Tab addNewTab(String title) {
-        TabLayout.Tab newTab = tabLayout.newTab();
-        newTab.setText(title);
-        newTab.setIcon(R.drawable.ic_home);
-        return newTab;
-    }*/
 
 
 }

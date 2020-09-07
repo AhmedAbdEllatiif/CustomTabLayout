@@ -11,4 +11,10 @@
     <string name="third">الثالثة</string>
     <string name="txt_show">عرض</string>
     <string name="scroll_text">اسحب لليمين</string>
+    <string name="english">English</string>
+    <string name="txt_arabic">العربية</string>
+    <string name="titles_only">Titles Only</string>
+    <string name="icons_only">Icons Only</string>
+    <string name="icons_and_titles">Icons and titles</string>
+    <string name="custom_shape">Custom Shape</string>
 </resources>

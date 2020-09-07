@@ -11,4 +11,8 @@
     <string name="third">Third</string>
     <string name="txt_show">Show</string>
     <string name="scroll_text">Scroll Left</string>
+    <string name="english">English</string>
+    <string name="titles_only">Titles Only</string>
+    <string name="icons_only">Icons Only</string>
+    <string name="custom_shape">Custom Shape</string>
 </resources>

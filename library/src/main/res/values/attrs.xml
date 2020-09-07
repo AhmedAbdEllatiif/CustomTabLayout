@@ -1,0 +1,15 @@
+<resources>
+    <declare-styleable name="CustomTabLayoutTheme">
+        <attr name="CustomTabLayoutStyle" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="CustomTabLayout">
+        <attr name="selectedIconColor" format="reference|color"/>
+        <attr name="unSelectedIconColor" format="reference|color" />
+        <attr name="colorState" format="reference|color" />
+        <attr name="showIndicator" format="boolean" />
+        <attr name="smoothScroll" format="boolean" />
+        <attr name="tabIndicatorColor" format="reference|color" />
+    </declare-styleable>
+
+</resources>

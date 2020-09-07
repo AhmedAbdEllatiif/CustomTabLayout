@@ -14,54 +14,55 @@ import com.ahmed.sampleApp.Translation.LocalManger;
 
 import androidx.appcompat.widget.SwitchCompat;
 
+import static com.ahmed.sampleApp.Activities.ViewPagerActivity.*;
+
 
 public class MainActivity extends BaseActivity {
 
+    //Views
     private SwitchCompat aSwitch;
-    private Button btn_showViewPager_default;
     private Button btn_showViewPager_titles;
     private Button btn_showViewPager_icons;
     private Button btn_showViewPager_titles_icons;
+    private Button btn_custom_shape;
 
-
-    public static final String VIEW_TYPE = "TYPE";
-    public static final int DEFAULT = 0;
-    public static final int CIRCLE = 100;
-    public static final int WITH_TITLES = 200;
-    public static final int WITH_TITLES_ICONS = 300;
-    public static final int WITH_ICONS = 400;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //Initialize views
+        //To initialize views
         initViews();
 
-        //onViewsClicked
+        //To handle on views clicked
         onViewsClicked();
 
+        //Change the ٍ switch btn status due to current Language
         dealWithSwitchBtn();
-
-
-
 
     }
 
-    //Initialize views
+    /**
+     *To initialize views
+     * */
     private void initViews() {
         aSwitch = findViewById(R.id.aSwitch);
-        btn_showViewPager_default = findViewById(R.id.btn_showViewPager_default);
         btn_showViewPager_titles = findViewById(R.id.btn_showViewPager_titles);
         btn_showViewPager_icons = findViewById(R.id.btn_showViewPager_icons);
         btn_showViewPager_titles_icons = findViewById(R.id.btn_showViewPager_titlesAndIcons);
-
-
+        btn_custom_shape = findViewById(R.id.btn_showViewPager_custom_shape);
     }
 
-    //OnViewsClicked
+    /**
+     * To handle on views clicked
+     * */
     private void onViewsClicked() {
+        btn_showViewPager_titles.setOnClickListener(v -> startViewPagerActivity(WITH_TITLES));
+        btn_showViewPager_icons.setOnClickListener(v -> startViewPagerActivity(WITH_ICONS));
+        btn_showViewPager_titles_icons.setOnClickListener(v -> startViewPagerActivity(WITH_TITLES_ICONS));
+        btn_custom_shape.setOnClickListener(v -> startViewPagerActivity(CIRCLE));
+
         aSwitch.setOnClickListener(v -> {
             if (!aSwitch.isActivated()) {
                 new Handler().postDelayed(() -> setNewLocale(LocalManger.LANGUAGE_ARABIC), 1500);
@@ -69,35 +70,11 @@ public class MainActivity extends BaseActivity {
                 new Handler().postDelayed(() -> setNewLocale(LocalManger.LANGUAGE_ENGLISH), 1500);
             }
         });
-
-        btn_showViewPager_default.setOnClickListener(v -> startViewPagerActivity(DEFAULT));
-        btn_showViewPager_titles.setOnClickListener(v -> startViewPagerActivity(WITH_TITLES));
-        btn_showViewPager_icons.setOnClickListener(v -> startViewPagerActivity(WITH_ICONS));
-        btn_showViewPager_titles_icons.setOnClickListener(v -> startViewPagerActivity(WITH_TITLES_ICONS));
-
     }
 
-    private void startViewPagerActivity(int viewPagerType) {
-        Intent intent = new Intent(this, ViewPagerActivity.class);
-        intent.putExtra(VIEW_TYPE, viewPagerType);
-        startActivity(intent);
-    }
-
-    //Change the language
-    public void setNewLocale(String language) {
-        MyApp.localeManager.setNewLocale(this, language);
-
-        Intent i = new Intent(this, MainActivity.class);
-        startActivity(i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK));
-
-
-        System.exit(0);
-
-
-    }
-
-
-    //Change the ٍ switch btn status due to current Language
+    /**
+     * Change the ٍ switch btn status due to current Language
+     * */
     private void dealWithSwitchBtn() {
         if (LocalManger.getLocale(getResources()).getDisplayLanguage().equals(Languages.ENGLISH)) {
             aSwitch.setChecked(false);
@@ -106,6 +83,25 @@ public class MainActivity extends BaseActivity {
             aSwitch.setChecked(true);
             aSwitch.setActivated(true);
         }
+    }
+
+    /**
+     * To open ViewPagerActivity
+     * */
+    private void startViewPagerActivity(int viewPagerType) {
+        Intent intent = new Intent(this, ViewPagerActivity.class);
+        intent.putExtra(VIEW_TYPE, viewPagerType);
+        startActivity(intent);
+    }
+
+    /**
+     * Change the language
+     * */
+    public void setNewLocale(String language) {
+        MyApp.localeManager.setNewLocale(this, language);
+        Intent i = new Intent(this, MainActivity.class);
+        startActivity(i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK));
+        System.exit(0);
     }
 
 }

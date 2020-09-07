@@ -4,142 +4,86 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="30dp"
-    android:orientation="vertical"
     android:layout_gravity="center"
+    android:orientation="vertical"
+    android:overScrollMode="never"
+    android:padding="30dp"
+    android:scrollbars="none"
+    tools:context="com.ahmed.sampleApp.Activities.MainActivity">
 
-    tools:context="com.ahmed.sampleApp.Activities.MainActivity"
-    >
+
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="15dp"
         android:layout_marginTop="30dp"
-        android:overScrollMode="never"
-        android:scrollbars="none"
         android:orientation="vertical"
-        >
-
+        android:paddingBottom="15dp">
+        <!--Content Text-->
         <TextView
             android:id="@+id/txt_content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/content_txt"
+            android:layout_marginTop="15dp"
             android:gravity="start"
             android:padding="3dp"
             android:text="@string/sample"
             android:textColor="#000"
-            android:layout_marginTop="15dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            android:textSize="@dimen/content_txt"
             app:layout_constraintEnd_toEndOf="parent"
-            />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-
-        <!--Switch Container-->
-        <!--////////////////////////////////////////////////////////////////-->
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/switch_container"
+        <!--Switch layout-->
+        <include
+            layout="@layout/switcher_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
             android:layout_gravity="center_horizontal"
-            >
+            android:layout_marginTop="30dp" />
 
-            <TextView
-                android:id="@+id/settings_txt_english_lang"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="English"
-                android:textSize="@dimen/content_txt"
-                android:textColor="@color/txt_gray"
-                android:padding="3dp"
-                android:gravity="center"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                />
-
-            <androidx.appcompat.widget.SwitchCompat
-                android:id="@+id/aSwitch"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
-                app:layout_constraintStart_toEndOf="@+id/settings_txt_english_lang"
-                app:layout_constraintTop_toTopOf="@+id/settings_txt_english_lang"
-                app:layout_constraintBottom_toBottomOf="@+id/settings_txt_english_lang"
-                />
-
-
-            <TextView
-                android:id="@+id/settings_txt_arabic_lang"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="العربية"
-                android:textSize="@dimen/content_txt"
-                android:textColor="@color/colorPrimary"
-                android:padding="3dp"
-                android:gravity="center"
-                app:layout_constraintStart_toEndOf="@id/aSwitch"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-        <!--////////////////////////////////////////////////////////////////-->
-        <!--End of Switch container-->
-
-
-        <Button
-            android:id="@+id/btn_showViewPager_default"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Default"
-            android:textColor="@color/white"
-            android:textSize="@dimen/content_txt"
-            android:background="@drawable/btn_shape"
-            android:layout_marginTop="30dp"
-
-            />
-
-
+        <!--Titles only button-->
         <Button
             android:id="@+id/btn_showViewPager_titles"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Titles Only"
-            android:textColor="@color/white"
-            android:textSize="@dimen/content_txt"
-            android:background="@drawable/btn_shape"
             android:layout_marginTop="30dp"
-            />
+            android:background="@drawable/btn_shape"
+            android:text="@string/titles_only"
+            android:textColor="@color/white"
+            android:textSize="@dimen/content_txt" />
 
-
+        <!--Icons only button-->
         <Button
             android:id="@+id/btn_showViewPager_icons"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Icons Only"
-            android:textColor="@color/white"
-            android:textSize="@dimen/content_txt"
-            android:background="@drawable/btn_shape"
             android:layout_marginTop="30dp"
-            />
+            android:background="@drawable/btn_shape"
+            android:text="@string/icons_only"
+            android:textColor="@color/white"
+            android:textSize="@dimen/content_txt" />
 
-
+        <!--Titles and Icons button-->
         <Button
             android:id="@+id/btn_showViewPager_titlesAndIcons"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Icons and titles"
-            android:textColor="@color/white"
-            android:textSize="@dimen/content_txt"
-            android:background="@drawable/btn_shape"
             android:layout_marginTop="30dp"
+            android:background="@drawable/btn_shape"
+            android:text="@string/icons_and_titles"
+            android:textColor="@color/white"
+            android:textSize="@dimen/content_txt" />
 
-            />
-
-
+        <!--Custom Shape button-->
+        <Button
+            android:id="@+id/btn_showViewPager_custom_shape"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/btn_shape"
+            android:text="@string/custom_shape"
+            android:textColor="@color/white"
+            android:textSize="@dimen/content_txt" />
     </androidx.appcompat.widget.LinearLayoutCompat>
+
 </ScrollView>
