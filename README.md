@@ -19,6 +19,7 @@ allprojects {
 **Step 2.** Add the library dependency to your project build.gradle:
 ```
 dependencies {
+  implementation 'com.google.android.material:material:(lastest release version)'
   implementation 'com.github.AhmedAbdEllatiif:Customtablayout:(lastest release version)'
 }
 ```
@@ -27,6 +28,49 @@ dependencies {
 
 In your XML file add this:
 ```
+<com.ahmed.library.CustomTabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:tabGravity="fill"
+        app:tabMode="fixed"
+        app:tabTextColor="@color/colorPrimaryDark"
+        app:tabSelectedTextColor="@color/colorAccent"
+        app:tabIndicatorColor="@color/colorAccent"
+        app:selectedIconColor="@color/colorAccent"
+        app:unSelectedIconColor="@color/colorPrimaryDark"
+        app:smoothScroll="true"
+        />
 ```
 
+## Attributes
+| Attribute                            | Description                                                                           | 
+| ------------------------------------ |-------------------------------------------------------------------------------------- | 
+| `app:selectedIconColor=""`            |To change icon color when the icon is selected (default=Color.DKGRAY)                                                  | 
+| `app:unSelectedIconColor=""`         | To change icon color when the icon is unSelected (default=Color.GRAY)                                       | 
+| `app:smoothScroll="boolean"`         | To make the viewPager scroll smooth or not when tabs clicked (default = true)                   | 
+| `app:showIndicator="boolean"`             | To show or hide tab indicator (default = true)                                            | 
 
+
+In your Java class:
+```
+CustomTabLayout tabLayout = findViewById(R.id.tabLayout);
+tabLayout.titles(getTitlesList());
+tabLayout.iconsResources(getIcons());
+tabLayout.setupWithViewPager(viewPager);
+```
+Or your Koltin class:
+```
+val customTabLayout : CustomTabLayout = findViewById(R.id.tabLayout)
+customTabLayout.iconsResources(getIcons())
+customTabLayout.titles(getTitlesList())
+customTabLayout.setupWithViewPager(viewPager)
+```
+
+## Methods
+| Method                            | Description                                                                           | 
+| ------------------------------------ |-------------------------------------------------------------------------------------- | 
+| `customTabLayout.iconsResources()`   |To insert icons of tabs                                                  | 
+| `customTabLayout.titles()`         | To insert titles of tabs                                    | 
+| `customTabLayout.tabsCount()`         | To set the tabs count requeried when there are no titles or icons (default = 0)                   | 
+| `customTabLayout.setupWithViewPager()`               | To build the tablayout with your viewpager                                            | 
